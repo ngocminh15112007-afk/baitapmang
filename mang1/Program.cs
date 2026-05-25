@@ -5,11 +5,7 @@ namespace mang1
 {
     internal class Program
     {
-        static void Main(string[] args)
-        {
-            Bai8();
-
-        }
+        
         static void Bai1()
         {
             Console.Write("Chon so luong so trong day: ");
@@ -284,13 +280,17 @@ namespace mang1
             }
                 if (cosonguyento == false) { Console.WriteLine("empty"); }
             }
+      
+
+
+        }
 
 
 
 
             
             }
-    } 
+    
 
         
        

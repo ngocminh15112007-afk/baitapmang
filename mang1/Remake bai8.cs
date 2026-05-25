@@ -26,15 +26,32 @@ namespace mang1
                 n = int.Parse(Console.ReadLine());
             }
             while (n < 0 || n > 100);
-            Console.WriteLine("Nhap day: ");
-            string[] arrnhap = Console.ReadLine().Split(' ');
-            int spt = Math.Min(n, arrnhap.Length);
-            int[] arrchuyen = new int[spt];
-            for (int i = 0; i < spt; i++)
+            int spt = 0;
+            int[] arrchuyen = null;
+            bool hople = true;
+            do
             {
-                arrchuyen[i] = int.Parse(arrnhap[i]);
-                Console.Write(arrchuyen[i] + " ");
+                Console.WriteLine("Nhap day: ");
+                string[] arrnhap = Console.ReadLine().Split(' ');
+                spt = Math.Min(n, arrnhap.Length);
+                arrchuyen = new int[spt];
+
+
+                for (int i = 0; i < spt; i++)
+                {
+                    arrchuyen[i] = int.Parse(arrnhap[i]);
+                    if (arrchuyen[i] < 0)
+                    {
+                        hople = false;
+                        Console.WriteLine("Co so am nhap lai");
+                        break;
+                    }
+                    Console.Write(arrchuyen[i] + " ");
+                }
             }
+            
+            while (!hople);
+            Console.WriteLine();
             bool tong = false;
             foreach (int num in arrchuyen)
             {
@@ -44,7 +61,7 @@ namespace mang1
                     tong = true;
                 }
             }
-                if (tong=false ) { Console.WriteLine("Empty"); }
+                if (tong==false ) { Console.WriteLine("Empty"); }
         }
             
     }
