@@ -13,8 +13,8 @@ namespace mang1
         {
             Console.WriteLine("KHOI TAO DU LIEU");
             int[] mangCuaToi = NhapMang();
-            Console.WriteLine("KET QUA BAI 9");
-            Bai10(mangCuaToi);
+            Console.WriteLine("KET QUA BAI 11");
+            Bai12(mangCuaToi, 6);
 
         }
   
@@ -87,11 +87,8 @@ namespace mang1
                     if (arr[i] % 2 == 0)
                     {
                         arrchan[c] = arr[i];
-                        c++;
-                        
+                        c++;   
                     }
-                   
-
                    else
                     {
                         arrle[l] = arr[i];
@@ -145,7 +142,69 @@ namespace mang1
                 }
                 Console.WriteLine("Giam dan: "); Xuatmang(giamdan);
             }
-                
+        static void Bai11(int[] arr, int x)
+        {
+            int n = arr.Length;
+            int temp = 0;
+            for (int i=0; i<n-1; i++)
+            {
+                for (int j =0; j<n-i-1; j++)
+                {
+                    if 
+                        (arr[j] > arr[j+1])
+                    {
+                        temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            Console.WriteLine(); Xuatmang(arr);
+            //chenf 1 soos
+            int[] mangmoi = new int[n + 1];
+            int vitri = 0;
+            while (vitri < n && x > arr[vitri])
+            {
+                vitri++;
+            }
+            for (int i = 0; i < vitri; i++)
+            {
+                mangmoi[i] = arr[i];
+            }
+            mangmoi[vitri] = x;
+            for (int i=vitri;i<n;i++)
+            {
+                mangmoi[i + 1] = arr[i];
+            }
+            Console.WriteLine(); Xuatmang(mangmoi);
+        }
+        static void Bai12(int[] arr, int x)
+        {
+            int n = arr.Length;
+            int soluongx = 0;
+            
+            int vitri = 0;
+            foreach (int num in arr)
+            {
+                if (num == x)
+                {
+                    soluongx++;
+                }
+            }
+            int[] mangmoi = new int[n - soluongx];
+
+            for (int i = 0; i < n; i++)
+            {
+                if (arr[i] != x)
+                {
+                    mangmoi[vitri] = arr[i];
+                    vitri++;
+                }
+            }
+            Console.WriteLine("Mang sau khi bo x: "); Xuatmang(mangmoi);
+        }
+
+
             }
 
 
