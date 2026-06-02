@@ -9,15 +9,7 @@ namespace mang1
 {
     public class Mang1chieu_muctbinh
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("KHOI TAO DU LIEU");
-            int[] mangCuaToi = NhapMang();
-            Console.WriteLine("KET QUA BAI 11");
-            Solanxuathien(mangCuaToi);
-
-        }
-
+        
 
 
         // 1. HÀM HỖ TRỢ
@@ -142,8 +134,11 @@ namespace mang1
             }
             Console.WriteLine("Giam dan: "); Xuatmang(giamdan);
         }
-        static void Bai11(int[] arr, int x)
+       //bai11
+        
+        static void chensomoi(int[] arr, int x)
         {
+            //sapxep
             int n = arr.Length;
             int temp = 0;
             for (int i = 0; i < n - 1; i++)
@@ -178,7 +173,9 @@ namespace mang1
             }
             Console.WriteLine(); Xuatmang(mangmoi);
         }
-        static void Bai12(int[] arr, int x)
+        
+        //lam lai
+        static void bomotso(int[] arr, int x)
         {
             int n = arr.Length;
             int soluongx = 0;
@@ -205,37 +202,41 @@ namespace mang1
         }
         static void Solanxuathien(int[] arr)
         {
-           
-            int j = 0;
             bool[] xuathien = new bool[arr.Length];
+           
             int maxCount = 0;
-            int maxPhantu = 0;
+            int maxphanTu = 0;
             for (int i = 0; i < arr.Length; i++)
             {
                 int count = 1;
                 if (xuathien[i]) continue;
-                for (j = i + 1; j < arr.Length; j++)
+                for (int j = i + 1; j < arr.Length; j++)
                 {
-                    if (arr[i] == arr[j]) 
-                    { count++; xuathien[j] = true; }
-
+                    if (arr[i] == arr[j])
+                    {
+                        count++;
+                        xuathien[j] = true;
+                    }
                 }
-                Console.WriteLine($"{arr[i]}: {count}");
-
-                if (count > maxCount || (count == maxCount && arr[i] > maxPhantu))
+                Console.WriteLine($"Phan tu {arr[i]} xuat hien {count} lan");
+                if (count > maxCount || count == maxCount && arr[i] > maxphanTu)
                 {
-                    maxCount = count;
-                    maxPhantu = arr[i];
+                    count = maxCount;
+                    arr[i] = maxphanTu;
                 }
-
             }
-            Console.WriteLine($"So xuat hien nhieu nhat voi so lan:{maxCount} la so: {maxPhantu}");
+                Console.WriteLine($"Xuat hien nhieu nhat la {maxphanTu} voi {maxCount} lan");
+            }
+
+
+           
+            
 
 
         }
 
     }
-        }
+        
 
 
 
